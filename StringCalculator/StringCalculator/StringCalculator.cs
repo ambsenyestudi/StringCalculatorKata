@@ -34,7 +34,9 @@ namespace StringCalculator
             {
                 numbers = NormalizeSeparators(numbers);
                 string[] nums = numbers.Split(defaultSeparator);
-                var negNumb = from num in nums where num.Contains(negSeparator) select num;
+                var negNumb = from num in nums
+                              where num.Contains(negSeparator)
+                              select num;
                 string negNumbers = string.Join(", ", negNumb.ToList<string>());
                 var msg = "Negatives not allowed " + negNumbers;
                 throw new FormatException(msg);
